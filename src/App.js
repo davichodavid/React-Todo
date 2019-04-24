@@ -38,6 +38,30 @@ class App extends React.Component {
   }
   // design `App` to be the parent component of your application.
 
+  handleChanges = event => {
+    this.setState({
+      task: {
+        ...this.state.task,
+        [event.target.name]: event.target.value
+      }
+    })
+  }
+
+  addTask = event => {
+    event.preventDefault();
+    this.setState({
+      tasksOnState: [...this.state.tasksOnState, this.state.task],
+      task: { ...this.state.task, task: '' }
+
+    });
+  }
+
+  clearTask = event => {
+    event.preventDefault();
+    this.setState({
+      task: { ...this.state.task, task: '' }
+    })
+  }
 
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
@@ -50,7 +74,7 @@ class App extends React.Component {
           })}
         </div>
         {/* <TodoList /> */}
-        <TodoForm />
+        <TodoForm handleChanges={this.handleChanges} addTask={this.addTask} clearTask={this.clearTask} {...this.state} />
       </div>
     );
   }
