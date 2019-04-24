@@ -46,7 +46,7 @@ class App extends React.Component {
         <h2>Welcome to your My App!</h2>
         <div>
           {this.state.tasksOnState.map(task => {
-            return <Todo todoProps={tasks} key={tasks.id} />;
+            return <Todo todoProps={task} key={tasks.id} />;
           })}
         </div>
         {/* <TodoList /> */}
