@@ -1,0 +1,21 @@
+.task h1 {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.task p {
+  margin: 0;
+}
+
+.task {
+  margin: 10px 0;
+
+}
+
+.task.true {
+  text-decoration: line-through;
+}
+
+.task.false{
+  text-decoration: none;
+}
