@@ -1,14 +1,6 @@
-.task h1 {
-  font-size: 1.6rem;
-  margin: 0;
-}
-
-.task p {
-  margin: 0;
-}
-
 .task {
-  margin: 10px 0;
+  margin: 15px 0;
+  color: #0D697D;
 
 }
 
@@ -18,4 +10,15 @@
 
 .task.false{
   text-decoration: none;
+}
+
+button {
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 4px;
+  background-color: #95E06C;
+}
+
+.clear {
+  background-color: #E1AA7D;
 }
