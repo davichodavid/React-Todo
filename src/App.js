@@ -7,17 +7,17 @@ import Todo from './components/TodoComponents/Todo';
 const tasks = [
   {
     task: "Walk the dog",
-    id: 1,
+    id: Date.now(),
     completed: false
   },
   {
     task: "Feed the dog",
-    id: 2,
+    id: Date.now(),
     completed: false
   },
   {
     task: "Drink Coffee",
-    id: 3,
+    id: Date.now(),
     completed: false
   }
 ]
@@ -51,15 +51,35 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({
       tasksOnState: [...this.state.tasksOnState, this.state.task],
-      task: { ...this.state.task, task: '' }
-
+      task: {
+        ...this.state.task, task: '',
+        id: Date.now(),
+        completed: false
+      }
     });
+  }
+
+  lineThrough = id => {
+    this.setState({
+      tasksOnState: this.state.tasksOnState.map(task => {
+        if (task.id === id) {
+          return {
+            ...task,
+            completed: !task.completed
+          };
+        } else {
+          return task;
+        }
+      })
+    })
   }
 
   clearTask = event => {
     event.preventDefault();
     this.setState({
-      task: { ...this.state.task, task: '' }
+      tasksOnState: this.state.tasksOnState.filter(task => {
+        return !task.completed;
+      })
     })
   }
 
@@ -70,7 +90,7 @@ class App extends React.Component {
         <h2>Welcome to your My App!</h2>
         <div>
           {this.state.tasksOnState.map(task => {
-            return <Todo todoProps={task} key={tasks.id} />;
+            return <Todo key={tasks.id} {...task} lineThrough={this.lineThrough} />;
           })}
         </div>
         {/* <TodoList /> */}

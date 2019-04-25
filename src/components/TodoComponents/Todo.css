@@ -9,4 +9,13 @@
 
 .task {
   margin: 10px 0;
+
+}
+
+.task.true {
+  text-decoration: line-through;
+}
+
+.task.false{
+  text-decoration: none;
 }

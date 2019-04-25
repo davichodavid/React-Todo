@@ -1,12 +1,13 @@
 import React from 'react';
 import './Todo.css';
 
-const Todo = props => {
+const Todo = ({ id, completed, task, lineThrough }) => {
   return (
-    <div className="task">
-      <h1>Task: {props.todoProps.task}</h1>
+    <div onClick={() => lineThrough(id)} className={`task ${completed}`}>
+      {/* <h1>Task: {props.todoProps.task}</h1>
       <p>Id: {props.todoProps.id}</p>
-      <p>{props.todoProps.completed}</p>
+      <p>{props.todoProps.completed}</p> */}
+      {task}
     </div>
   );
 }
