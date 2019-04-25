@@ -1,4 +1,5 @@
 import React from 'react';
+import "./App.css";
 
 import TodoForm from './components/TodoComponents/TodoForm';
 import Todo from './components/TodoComponents/Todo';
@@ -86,7 +87,7 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
+      <div className="to-do-container">
         <h2>Welcome to your My App!</h2>
         <div>
           {this.state.tasksOnState.map(task => {

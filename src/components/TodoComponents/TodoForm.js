@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css';
 
 const TodoForm = props => {
   return (
@@ -10,7 +11,7 @@ const TodoForm = props => {
         value={props.task.task}
       />
       <button>Add Task</button>
-      <button onClick={props.clearTask}>Clear</button>
+      <button className="clear" onClick={props.clearTask}>Clear</button>
 
     </form>
   );
